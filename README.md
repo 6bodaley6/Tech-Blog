@@ -1,5 +1,4 @@
 # Tech-Blog
-
 GIVEN a CMS-style blog site
 
 WHEN I visit the site for the first time
