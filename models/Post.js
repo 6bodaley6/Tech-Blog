@@ -5,7 +5,7 @@ class Post extends Model { }
 
 Post.init(
     {
-        tite: DataTypes.STRING,
+        title: DataTypes.STRING,
         body: DataTypes.STRING
     },
     {

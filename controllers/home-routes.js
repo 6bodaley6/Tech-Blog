@@ -1,8 +1,14 @@
 const router = require('express').Router();
-// const { } = require('../models');
+const { Post, Comment, User } = require('../models');
 //!! change later to make acceptance criteria
 router.get('/', (req, res) => {
-    res.render('home');
+    Post.findAll({ include: [User] }).then((data) => {
+        const posts = data.map((p) => {
+            return p.get({ plain: true })
+        })
+        res.render("home", { posts })
+    })
+    // // res.render('home');
 });
 
 router.get('/login', (req, res) => {
