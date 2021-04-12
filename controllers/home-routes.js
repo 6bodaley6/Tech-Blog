@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { Post, Comment, User } = require('../models');
-//!! change later to make acceptance criteria
 router.get('/', (req, res) => {
     Post.findAll({ include: [User] }).then((data) => {
         const posts = data.map((p) => {
@@ -9,6 +8,13 @@ router.get('/', (req, res) => {
         res.render("home", { posts })
     })
     // // res.render('home');
+});
+router.get('/post/:id', (req, res) => {
+    Post.findByPk(req.params.id, { include: [User] }).then((data) => {
+
+        const post = data.get({ plain: true })
+        res.render("post", post)
+    })
 });
 
 router.get('/login', (req, res) => {

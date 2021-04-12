@@ -27,6 +27,3 @@ router.delete("/:id", isAuth, (req, res) => {
 
 
 module.exports = router;
-
-//!! homeroutes will want to find single post
-//!! work on handlebars
